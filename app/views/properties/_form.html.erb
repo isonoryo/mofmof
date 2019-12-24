@@ -36,7 +36,19 @@
     <%= form.text_area :remarks %>
   </div>
 
+  <% n = 0 %>
+  <%= form.fields_for :near_stations do |stations| %>
+    <h2>最寄駅<%= n += 1 %></h2>
+    <%= stations.label "路線名" %>
+    <%= stations.text_field :route_name %>
+    <%= stations.label "駅名" %>
+    <%= stations.text_field :station_name %>
+    <%= stations.label "徒歩分数" %>
+    <%= stations.text_field :minutes %>
+  <% end %>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "物件を登録する" %>
   </div>
+
 <% end %>

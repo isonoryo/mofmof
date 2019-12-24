@@ -1,2 +1,0 @@
-class NearStarion < ApplicationRecord
-end
