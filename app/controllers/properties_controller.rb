@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: %i(show edit update destroy)
 
   # GET /properties
   # GET /properties.json
@@ -15,14 +15,14 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
-    # ２つの最寄駅欄を表示
-    2.times {@property.near_stations.build}
+    @property.near_stations.new
   end
 
   # GET /properties/1/edit
   def edit
+       @property.near_stations.new
   end
-
+  
   # POST /properties
   # POST /properties.json
   def create
